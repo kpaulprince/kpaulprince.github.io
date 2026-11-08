@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Prince Paul — Senior Software Developer. Test automation, infrastructure and analytics at Ford Motor Company Canada." />
+<link rel="icon" href="data:," />
+<title>Prince Paul — Senior Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f3f5f2;
+    --bg-2:#e9ede8;
+    --surface:#ffffff;
+    --surface-2:#eef1ed;
+    --ink:#131917;
+    --ink-2:#3d4a44;
+    --muted:#66736c;
+    --line:#d5dcd6;
+    --line-strong:#b9c4ba;
+    --accent:#0c6b4a;
+    --accent-ink:#ffffff;
+    --accent-soft:#dcefe5;
+    --amber:#b45309;
+    --amber-soft:#fdeeda;
+    --nav-bg:rgba(243,245,242,.92);
+    --shadow:0 1px 2px rgba(19,25,23,.05),0 12px 32px -12px rgba(19,25,23,.14);
+    --radius:14px;
+    --radius-sm:10px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1311;
+      --bg-2:#121815;
+      --surface:#151d19;
+      --surface-2:#1a2420;
+      --ink:#e9efeb;
+      --ink-2:#c3cec7;
+      --muted:#93a198;
+      --line:#27332d;
+      --line-strong:#37463e;
+      --accent:#34c98e;
+      --accent-ink:#07120d;
+      --accent-soft:#173528;
+      --amber:#f0a04b;
+      --amber-soft:#33241033;
+      --nav-bg:rgba(14,19,17,.92);
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px -12px rgba(0,0,0,.5);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important;animation:none!important} }
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  ::selection{background:var(--accent);color:var(--accent-ink)}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  @media(min-width:760px){.wrap{padding:0 32px}}
+
+  /* ---------- Nav ---------- */
+  .site-nav{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:16px;min-height:60px}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--ink);font-weight:700;font-size:16px;letter-spacing:-.01em;flex-shrink:0}
+  .brand:hover{text-decoration:none}
+  .brand-mark{width:34px;height:34px;border-radius:9px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;letter-spacing:.02em}
+  .brand small{display:block;font-weight:500;font-size:11px;color:var(--muted);letter-spacing:.02em;line-height:1.2}
+  .nav-links{display:none;align-items:center;gap:2px;margin-left:auto}
+  @media(min-width:860px){.nav-links{display:flex}}
+  .nav-links a{color:var(--ink-2);font-size:14px;font-weight:500;padding:8px 12px;border-radius:8px}
+  .nav-links a:hover{text-decoration:none;background:var(--surface-2);color:var(--ink)}
+  .nav-links a.active{color:var(--ink);background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line)}
+  .nav-links a .soon{font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-strong);border-radius:99px;padding:1px 6px;margin-left:5px;vertical-align:2px}
+  .nav-cta{display:none;margin-left:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:14px;padding:9px 16px;border-radius:9px}
+  .nav-cta:hover{text-decoration:none;filter:brightness(1.07)}
+  @media(min-width:860px){.nav-cta{display:inline-block}}
+  .menu-btn{margin-left:auto;width:42px;height:42px;border:1px solid var(--line);background:var(--surface);border-radius:9px;display:grid;place-items:center;cursor:pointer;color:var(--ink)}
+  @media(min-width:860px){.menu-btn{display:none}}
+  .mobile-menu{display:none;border-top:1px solid var(--line);padding:10px 0 14px}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:flex;align-items:center;justify-content:space-between;padding:11px 4px;color:var(--ink);font-weight:500;border-bottom:1px solid var(--line)}
+  .mobile-menu a:last-child{border-bottom:none}
+  .mobile-menu a:hover{text-decoration:none}
+  .mobile-menu .soon{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-strong);border-radius:99px;padding:2px 8px}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:52px 0 0}
+  @media(min-width:900px){.hero{padding:72px 0 0}}
+  .hero-grid{display:grid;gap:36px}
+  @media(min-width:940px){.hero-grid{grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}}
+  .hero-location{display:inline-flex;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:500;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:6px 13px}
+  .hero-location .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
+  h1{font-family:"IBM Plex Serif",Georgia,serif;font-size:clamp(42px,7vw,64px);line-height:1.04;font-weight:600;letter-spacing:-.02em;margin:20px 0 0}
+  .hero-title{font-size:clamp(19px,2.6vw,23px);line-height:1.35;font-weight:600;color:var(--accent);margin:14px 0 0;max-width:34ch}
+  .hero-lede{font-size:17px;line-height:1.65;color:var(--ink-2);margin:18px 0 0;max-width:58ch}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:12px 20px;border-radius:10px;border:1px solid transparent;cursor:pointer}
+  .btn:hover{text-decoration:none}
+  .btn-primary{background:var(--accent);color:var(--accent-ink)}
+  .btn-primary:hover{filter:brightness(1.07)}
+  .btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line-strong)}
+  .btn-ghost:hover{border-color:var(--ink-2)}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+  .hero-meta b{color:var(--ink-2);font-weight:600}
+  .hero-meta a{font-weight:500}
+
+  /* Platform diagram card */
+  .platform-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+  .platform-card h2{font-size:13px;font-family:"IBM Plex Mono",monospace;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+  .platform-card .pc-sub{font-size:14.5px;color:var(--ink-2);margin:0 0 18px;line-height:1.5}
+  .flow{display:flex;flex-direction:column;gap:0}
+  .flow-row{display:grid;grid-template-columns:1fr;gap:8px}
+  @media(min-width:480px){.flow-row.split{grid-template-columns:1fr 1fr}}
+  .node{border:1px solid var(--line-strong);border-radius:var(--radius-sm);padding:11px 13px;background:var(--surface-2)}
+  .node strong{display:block;font-size:14px;font-weight:600;line-height:1.3}
+  .node span{display:block;font-size:12.5px;color:var(--muted);line-height:1.45;margin-top:2px}
+  .node.hl{border-color:var(--accent);background:var(--accent-soft)}
+  .connector{display:flex;justify-content:center;padding:3px 0;color:var(--muted)}
+  .connector svg{display:block}
+  .pc-foot{margin-top:18px;padding-top:15px;border-top:1px dashed var(--line-strong);font-size:13px;color:var(--muted);line-height:1.55}
+  .pc-foot b{color:var(--ink)}
+
+  /* Stats */
+  .stats{margin-top:52px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .stats-grid{display:grid;grid-template-columns:1fr 1fr}
+  @media(min-width:860px){.stats-grid{grid-template-columns:repeat(4,1fr)}}
+  .stat{padding:22px 4px 22px 0}
+  .stat + .stat{border-left:1px solid var(--line);padding-left:20px}
+  @media(max-width:859px){.stat:nth-child(3){border-left:none;padding-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+  .stat-num{font-family:"IBM Plex Serif",Georgia,serif;font-size:30px;font-weight:600;letter-spacing:-.01em;line-height:1.1;min-width:0}
+  .stat-num .arr{color:var(--accent);font-family:"IBM Plex Sans",sans-serif;font-weight:600}
+  .stat-num .ib-part{white-space:nowrap}
+  @media(max-width:859px){.stat-num{font-size:25px;line-height:1.25;display:flex;flex-wrap:wrap;align-items:baseline;gap:1px 7px}}
+  .stat-label{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.5;max-width:24ch}
+
+  /* ---------- Sections ---------- */
+  section.block{padding:64px 0 0}
+  @media(min-width:900px){section.block{padding:84px 0 0}}
+  .sec-head{max-width:720px}
+  .sec-kicker{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+  h2.sec-title{font-family:"IBM Plex Serif",Georgia,serif;font-size:clamp(28px,4vw,38px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0}
+  .sec-intro{font-size:16.5px;color:var(--ink-2);line-height:1.65;margin:14px 0 0}
+
+  /* Principles */
+  .principles{display:grid;gap:14px;margin-top:30px}
+  @media(min-width:860px){.principles{grid-template-columns:repeat(3,1fr)}}
+  .principle{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .principle .p-num{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--accent)}
+  .principle h3{font-size:17px;font-weight:600;margin:9px 0 7px;line-height:1.3}
+  .principle p{font-size:14.5px;color:var(--ink-2);margin:0;line-height:1.6}
+
+  /* Featured work tabs */
+  .work-shell{margin-top:30px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .work-tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);background:var(--surface-2)}
+  .work-tabs::-webkit-scrollbar{display:none}
+  .work-tab{flex:1 0 auto;border:none;background:none;font:inherit;font-size:13.5px;font-weight:600;color:var(--muted);padding:15px 16px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;text-align:center}
+  .work-tab:hover{color:var(--ink)}
+  .work-tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent);background:var(--surface)}
+  @media(max-width:759px){
+    .work-tabs{flex-wrap:wrap;overflow-x:visible}
+    .work-tab{flex:1 1 33.333%;white-space:normal;padding:13px 8px;font-size:13px;line-height:1.35}
+  }
+  .work-panel{padding:26px 22px 28px}
+  @media(min-width:760px){.work-panel{padding:32px 34px 34px}}
+  .work-panel h3{font-size:21px;font-weight:600;margin:0 0 6px;line-height:1.3;letter-spacing:-.01em}
+  .work-panel .wp-tag{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+  .work-panel p{font-size:15.5px;color:var(--ink-2);line-height:1.65;margin:10px 0 0;max-width:68ch}
+  .work-panel ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+  @media(min-width:760px){.work-panel ul{grid-template-columns:1fr 1fr;gap:9px 28px}}
+  .work-panel li{font-size:14.5px;color:var(--ink-2);line-height:1.55;padding-left:20px;position:relative}
+  .work-panel li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+  .work-panel li b{color:var(--ink);font-weight:600}
+  .impact-banner{margin-top:14px;background:var(--ink);color:var(--bg);border-radius:var(--radius);padding:24px 22px;display:grid;gap:14px;min-width:0}
+  @media(min-width:760px){.impact-banner{grid-template-columns:auto 1fr;gap:30px;align-items:center;padding:26px 30px}}
+  .impact-banner .ib-num{font-family:"IBM Plex Serif",Georgia,serif;font-size:clamp(26px,3.4vw,34px);font-weight:600;line-height:1.15;min-width:0}
+  .impact-banner .ib-num .ib-part{white-space:nowrap}
+  @media(min-width:760px){.impact-banner .ib-num{white-space:nowrap}}
+  .impact-banner .ib-num em{font-style:normal;color:var(--accent)}
+  @media (prefers-color-scheme: dark){.impact-banner .ib-num em{color:var(--accent)}}
+  .impact-banner p{margin:0;font-size:14.5px;line-height:1.6;opacity:.85;max-width:62ch;min-width:0}
+  @media(max-width:759px){
+    .impact-banner{padding:22px 20px;gap:12px}
+    .impact-banner .ib-num{font-size:27px;line-height:1.3;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;white-space:normal}
+    .impact-banner p{font-size:14.5px;line-height:1.65}
+  }
+
+  /* Skills */
+  .skill-filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+  .skill-filter{font:inherit;font-size:13.5px;font-weight:600;padding:8px 15px;border-radius:99px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-2);cursor:pointer}
+  .skill-filter:hover{color:var(--ink);border-color:var(--ink-2)}
+  .skill-filter[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .skill-groups{display:grid;gap:14px;margin-top:20px}
+  @media(min-width:860px){.skill-groups{grid-template-columns:1fr 1fr}}
+  .skill-group{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .skill-group.hidden{display:none}
+  .skill-group h3{font-size:15px;font-weight:600;margin:0 0 4px;display:flex;align-items:baseline;gap:9px}
+  .skill-group h3 .sg-cat{font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+  .skill-group .sg-note{font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.5}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{font-size:13.5px;font-weight:500;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:5px 11px;line-height:1.4}
+  .chip small{color:var(--muted);font-weight:400}
+
+  /* Experience timeline */
+  .timeline{margin-top:32px;border-left:2px solid var(--line-strong);margin-left:6px}
+  .t-item{position:relative;padding:0 0 34px 26px}
+  .t-item:last-child{padding-bottom:6px}
+  .t-item::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--line-strong)}
+  .t-item.current::before{background:var(--accent);border-color:var(--accent)}
+  .t-dates{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;letter-spacing:.05em;color:var(--accent)}
+  .t-item h3{font-size:18px;font-weight:600;margin:5px 0 2px;line-height:1.35}
+  .t-item h3 .t-org{color:var(--ink-2);font-weight:500}
+  .t-item p{font-size:14.5px;color:var(--ink-2);margin:6px 0 0;line-height:1.6;max-width:66ch}
+  .t-clients{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+  .t-clients span{font-size:12.5px;font-weight:500;color:var(--ink-2);border:1px solid var(--line-strong);border-radius:99px;padding:2px 10px}
+  .t-clients .tc-label{border:none;padding-left:0;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);align-self:center}
+
+  /* Contact */
+  .contact-card{margin-top:30px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 22px;display:grid;gap:22px}
+  @media(min-width:820px){.contact-card{grid-template-columns:1.2fr .8fr;padding:36px;gap:40px}}
+  .contact-card h3{font-family:"IBM Plex Serif",Georgia,serif;font-size:25px;font-weight:600;margin:0 0 8px;line-height:1.25}
+  .contact-card p{font-size:15px;color:var(--ink-2);margin:0;line-height:1.6;max-width:52ch}
+  .contact-rows{display:grid;gap:0;align-content:start}
+  .contact-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .contact-row:last-child{border-bottom:none}
+  .contact-row .cr-label{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+  .contact-row .cr-value{font-size:14.5px;font-weight:500;text-align:right}
+  .contact-row a.cr-value{word-break:break-all}
+  footer{margin-top:84px;border-top:1px solid var(--line);background:var(--bg-2)}
+  .footer-inner{padding:30px 0 36px;display:grid;gap:18px}
+  @media(min-width:760px){.footer-inner{grid-template-columns:1fr auto;align-items:start}}
+  .footer-brand{font-weight:700;font-size:15px}
+  .footer-sub{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.55}
+  .footer-nav{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;font-weight:500}
+  .footer-nav a{color:var(--ink-2)}
+  .footer-nav .soon{font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:4px;vertical-align:2px}
+</style>
+</head>
+<body>
+
+<!-- ======================= NAV ======================= -->
+<header class="site-nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Prince Paul — home">
+        <span class="brand-mark" aria-hidden="true">PP</span>
+        <span>Prince Paul<small>Senior Software Developer</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#top" class="active" aria-current="page">Home</a>
+        <a href="#featured-work">Projects<span class="soon">Page 2</span></a>
+        <a href="#experience">Experience<span class="soon">Page 3</span></a>
+        <a href="#skills">Resume<span class="soon">Page 4</span></a>
+        <a href="#contact">Contact<span class="soon">Page 5</span></a>
+      </nav>
+      <a class="nav-cta" href="#contact">Contact</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+      <a href="#top">Home</a>
+      <a href="#featured-work">Projects <span class="soon">Page 2</span></a>
+      <a href="#experience">Experience <span class="soon">Page 3</span></a>
+      <a href="#skills">Resume <span class="soon">Page 4</span></a>
+      <a href="#contact">Contact <span class="soon">Page 5</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ======================= HERO ======================= -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-location"><span class="dot" aria-hidden="true"></span>Ford Motor Company Canada</span>
+          <h1>Prince Paul</h1>
+          <p class="hero-title">Senior Software Developer — Test Automation, Infrastructure &amp; Analytics</p>
+          <p class="hero-lede">My career has centred on building testing tools, lab infrastructure, and automation that other teams rely on. In recent years I built and connected the infrastructure that makes ECG test data usable across teams — from reliable DUT (devices under test) operations and a cloud-hosted database to Grafana dashboards and AI-assisted data access.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#featured-work">See the featured work
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v10m0 0 4-4M8 12 4 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-90 8 8)"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          </div>
+          <div class="hero-meta">
+            <span><b>Role</b> &nbsp;Senior Software Developer (GSR8)</span>
+            <span><b>Focus</b> &nbsp;Test automation &amp; lab infrastructure</span>
+          </div>
+        </div>
+
+        <aside class="platform-card" aria-label="The ECG test platform at a glance">
+          <h2>Featured platform</h2>
+          <p class="pc-sub">A resilient ECG test platform at Ford — the pieces I built and connected so test data is usable across teams.</p>
+          <div class="flow" role="img" aria-label="Flow diagram: DUTs monitored through Jenkins, data stored in an ECG analytics database on Google Cloud Platform, surfaced through Grafana dashboards and the ECG Test Analytics Copilot agent.">
+            <div class="flow-row split">
+              <div class="node"><strong>DUT</strong><span>DUT connectivity, tokens &amp; Windows Update status monitored, with recovery workflows</span></div>
+              <div class="node"><strong>Jenkins</strong><span>Rebuilt from the ground up — redundancy, recovery, storage &amp; memory upgrades</span></div>
+            </div>
+            <div class="connector" aria-hidden="true"><svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M8 1v13m0 0 4.5-4.5M8 14 3.5 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="flow-row">
+              <div class="node hl"><strong>ECG analytics database</strong><span>Designed locally, then migrated to Google Cloud Platform</span></div>
+            </div>
+            <div class="connector" aria-hidden="true"><svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M8 1v13m0 0 4.5-4.5M8 14 3.5 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="flow-row split">
+              <div class="node"><strong>Grafana dashboards</strong><span>Brought online locally, migrated to GCP</span></div>
+              <div class="node"><strong>Copilot agent</strong><span>ECG Test Analytics Copilot — data extraction for Test Triage, AI bots &amp; test teams</span></div>
+            </div>
+          </div>
+          <p class="pc-foot">Used by <b>Test Triage, AI bots and test teams</b> to get at ECG test data without going through the lab team for every question.</p>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="wrap">
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-num"><span class="ib-part">8+ hrs</span> <span class="arr" aria-hidden="true">→</span> <span class="ib-part">&lt;30 min</span></div>
+            <div class="stat-label">Environment setup time after automating VM &amp; prerequisite installation</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">200+</div>
+            <div class="stat-label">Users on the team served by that lab &amp; environment automation</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">300+</div>
+            <div class="stat-label">DUTs covered by the automated setup</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">2023–Now</div>
+            <div class="stat-label">At Ford Motor Company Canada, building the ECG test platform</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================= HOW I WORK ======================= -->
+  <section class="block" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">How I work</p>
+        <h2 class="sec-title" id="about-title">The person other teams call when the lab stops working</h2>
+        <p class="sec-intro">I'm known for finding quick, practical fixes and for treating other teams as customers — the infrastructure only counts if the people depending on it can get their work done.</p>
+      </div>
+      <div class="principles">
+        <article class="principle">
+          <span class="p-num">01</span>
+          <h3>Quick, practical fixes</h3>
+          <p>When something breaks, the first job is getting people unblocked with a fix that works — then hardening it so it stays fixed.</p>
+        </article>
+        <article class="principle">
+          <span class="p-num">02</span>
+          <h3>A “let's try it” attitude</h3>
+          <p>Most infrastructure questions get answered faster by building the small version and measuring it than by debating it in the abstract.</p>
+        </article>
+        <article class="principle">
+          <span class="p-num">03</span>
+          <h3>Other teams are customers</h3>
+          <p>Test Triage, AI bots and test teams use the platform every day. Their friction is my backlog — that's what the dashboards and the Copilot agent are for.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FEATURED WORK ======================= -->
+  <section class="block" id="featured-work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">Featured work · Ford Motor Company Canada</p>
+        <h2 class="sec-title" id="work-title">Building a resilient ECG test platform</h2>
+        <p class="sec-intro">Five connected pieces, built between 2023 and today. Pick one to see what it involved — the full project breakdowns will live on the Projects page as the site grows.</p>
+      </div>
+
+      <div class="work-shell">
+        <div class="work-tabs" role="tablist" aria-label="ECG test platform areas">
+          <button class="work-tab" role="tab" id="tab-nodes" aria-selected="true" aria-controls="panel-nodes" data-tab="nodes">DUT health</button>
+          <button class="work-tab" role="tab" id="tab-db" aria-selected="false" aria-controls="panel-db" data-tab="db" tabindex="-1">Database &amp; cloud</button>
+          <button class="work-tab" role="tab" id="tab-grafana" aria-selected="false" aria-controls="panel-grafana" data-tab="grafana" tabindex="-1">Grafana</button>
+          <button class="work-tab" role="tab" id="tab-jenkins" aria-selected="false" aria-controls="panel-jenkins" data-tab="jenkins" tabindex="-1">Jenkins resilience</button>
+          <button class="work-tab" role="tab" id="tab-copilot" aria-selected="false" aria-controls="panel-copilot" data-tab="copilot" tabindex="-1">Copilot agent</button>
+        </div>
+
+        <div class="work-panel" role="tabpanel" id="panel-nodes" aria-labelledby="tab-nodes" data-panel="nodes">
+          <span class="wp-tag">DUT health &amp; operations</span>
+          <h3>Keeping DUTs connected, licensed and patched</h3>
+          <p>Monitoring and recovery workflows for the things that quietly take a DUT out of service — so problems surface and get fixed before a test run depends on that DUT.</p>
+          <ul>
+            <li><b>Connectivity</b> — monitoring and recovery for DUT connection issues</li>
+            <li><b>Token availability</b> — watching for the token problems that block jobs</li>
+            <li><b>Windows Update status</b> — tracking patch state across DUTs</li>
+            <li><b>Connection monitor</b> — reads disconnect / reconnect events directly from Jenkins logs</li>
+            <li><b>Hardware setup automation</b> — automated hardware setup on the DUTs as part of lab &amp; environment automation</li>
+          </ul>
+        </div>
+
+        <div class="work-panel" role="tabpanel" id="panel-db" aria-labelledby="tab-db" data-panel="db" hidden>
+          <span class="wp-tag">Database architecture &amp; cloud migration</span>
+          <h3>An ECG analytics database, designed locally and moved to GCP</h3>
+          <p>The platform needed one place where ECG test data could be analysed across teams, instead of living in scattered lab outputs.</p>
+          <ul>
+            <li><b>Designed locally</b> — the ECG analytics database schema and architecture built from the ground up</li>
+            <li><b>Migrated to GCP</b> — moved to Google Cloud Platform so teams beyond the lab can use it</li>
+            <li><b>PostgreSQL</b> — the database technology underneath the analytics store</li>
+            <li><b>Shared foundation</b> — the data layer the dashboards and Copilot agent both draw on</li>
+          </ul>
+        </div>
+
+        <div class="work-panel" role="tabpanel" id="panel-grafana" aria-labelledby="tab-grafana" data-panel="grafana" hidden>
+          <span class="wp-tag">Grafana dashboards</span>
+          <h3>Dashboards that make test data visible at a glance</h3>
+          <p>Grafana dashboards over the ECG analytics data, so teams can see test health themselves instead of asking the lab team to dig.</p>
+          <ul>
+            <li><b>Brought online locally</b> — first stood up on local infrastructure</li>
+            <li><b>Migrated to GCP</b> — moved to Google Cloud Platform alongside the database</li>
+            <li><b>Self-serve visibility</b> — analytics data readable across teams</li>
+          </ul>
+        </div>
+
+        <div class="work-panel" role="tabpanel" id="panel-jenkins" aria-labelledby="tab-jenkins" data-panel="jenkins" hidden>
+          <span class="wp-tag">Jenkins resilience &amp; capacity</span>
+          <h3>Rebuilt Jenkins from the ground up after it was deleted</h3>
+          <p>When Jenkins was accidentally deleted, I rebuilt it from scratch — and used the rebuild to make sure a single accident couldn't take it down the same way again.</p>
+          <ul>
+            <li><b>Full rebuild</b> — Jenkins reconstructed from the ground up after an accidental deletion</li>
+            <li><b>Redundancy &amp; recovery</b> — measures added so the service can be restored, not reinvented</li>
+            <li><b>Capacity upgrades</b> — storage and memory increases to support the workload</li>
+            <li><b>Administration</b> — ongoing Jenkins administration, jobs and CI/CD</li>
+          </ul>
+        </div>
+
+        <div class="work-panel" role="tabpanel" id="panel-copilot" aria-labelledby="tab-copilot" data-panel="copilot" hidden>
+          <span class="wp-tag">ECG Test Analytics Copilot agent</span>
+          <h3>AI-assisted access to ECG test data</h3>
+          <p>A Copilot agent built specifically for ECG test analytics, so people can extract the data they need in plain language instead of writing queries or filing requests.</p>
+          <ul>
+            <li><b>Domain-specific skills</b> — built for ECG test data, not generic chat</li>
+            <li><b>Prompts &amp; scripts</b> — the extraction logic behind the agent</li>
+            <li><b>Who uses it</b> — Test Triage, AI bots and test teams</li>
+            <li><b>What it does</b> — data extraction from the ECG analytics platform</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="impact-banner">
+        <div class="ib-num"><span class="ib-part">8+ hours</span> <em aria-hidden="true">→</em> <span class="ib-part">under 30 minutes</span></div>
+        <p><strong>Lab &amp; environment automation.</strong> Automating VM and prerequisite installation (Python, Bash, Batch, VirtualBox) and hardware setup on the DUTs cut environment setup from a full working day to under half an hour — for a team of 200+ users across 300+ lab machines supporting 300+ DUTs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= SKILLS ======================= -->
+  <section class="block" id="skills" aria-labelledby="skills-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">Core skills</p>
+        <h2 class="sec-title" id="skills-title">Software, platforms, and the hardware underneath</h2>
+        <p class="sec-intro">A career that started in hardware engineering and moved into software — so the toolkit runs from soldering irons and oscilloscopes to cloud databases and CI/CD. Filter by area:</p>
+      </div>
+
+      <div class="skill-filters" role="group" aria-label="Filter skills by area">
+        <button class="skill-filter" data-filter="all" aria-pressed="true">All skills</button>
+        <button class="skill-filter" data-filter="software" aria-pressed="false">Software</button>
+        <button class="skill-filter" data-filter="platform" aria-pressed="false">Platforms &amp; tools</button>
+        <button class="skill-filter" data-filter="hardware" aria-pressed="false">Hardware &amp; lab</button>
+        <button class="skill-filter" data-filter="domain" aria-pressed="false">Domains</button>
+      </div>
+
+      <div class="skill-groups">
+        <article class="skill-group" data-group="software">
+          <h3>Languages &amp; scripting <span class="sg-cat">Software</span></h3>
+          <p class="sg-note">The day-to-day languages for automation, tooling and data work.</p>
+          <div class="chips">
+            <span class="chip">Python</span>
+            <span class="chip">Groovy</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">C / C++</span>
+            <span class="chip">Bash</span>
+            <span class="chip">Batch</span>
+          </div>
+        </article>
+
+        <article class="skill-group" data-group="platform">
+          <h3>CI/CD, cloud &amp; tooling <span class="sg-cat">Platforms</span></h3>
+          <p class="sg-note">Infrastructure I administer and build on, not just use.</p>
+          <div class="chips">
+            <span class="chip">Jenkins <small>— administration, jobs, CI/CD</small></span>
+            <span class="chip">Google Cloud Platform <small>(GCP)</small></span>
+            <span class="chip">Grafana</span>
+            <span class="chip">Copilot agents</span>
+            <span class="chip">Git</span>
+            <span class="chip">Jira</span>
+            <span class="chip">Ansible</span>
+            <span class="chip">Artifactory</span>
+          </div>
+        </article>
+
+        <article class="skill-group" data-group="software">
+          <h3>Web <span class="sg-cat">Software</span></h3>
+          <p class="sg-note">For internal tools and interfaces.</p>
+          <div class="chips">
+            <span class="chip">Django</span>
+            <span class="chip">HTML</span>
+          </div>
+        </article>
+
+        <article class="skill-group" data-group="hardware">
+          <h3>Circuit &amp; board work <span class="sg-cat">Hardware</span></h3>
+          <p class="sg-note">From the hardware-engineering years — design through rework.</p>
+          <div class="chips">
+            <span class="chip">Analog &amp; digital circuit design</span>
+            <span class="chip">Circuit simulation</span>
+            <span class="chip">Schematics &amp; layout <small>— eCAD</small></span>
+            <span class="chip">Eagle</span>
+            <span class="chip">DipTrace</span>
+            <span class="chip">Altium</span>
+            <span class="chip">Reflow / rework / soldering</span>
+          </div>
+        </article>
+
+        <article class="skill-group" data-group="hardware">
+          <h3>Lab equipment automation <span class="sg-cat">Hardware</span></h3>
+          <p class="sg-note">Automating the instruments a test lab runs on.</p>
+          <div class="chips">
+            <span class="chip">Analyzers</span>
+            <span class="chip">Oscilloscopes</span>
+            <span class="chip">Signal generators</span>
+            <span class="chip">Power / LCR meters</span>
+            <span class="chip">Network analyzers</span>
+            <span class="chip">Sensors</span>
+          </div>
+        </article>
+
+        <article class="skill-group" data-group="domain">
+          <h3>Domains &amp; protocols <span class="sg-cat">Domains</span></h3>
+          <p class="sg-note">The problem areas the tools above get pointed at.</p>
+          <div class="chips">
+            <span class="chip">Test automation &amp; lab infrastructure</span>
+            <span class="chip">Wi-Fi <small>— 802.11k, 802.11ax / Wi-Fi 6</small></span>
+            <span class="chip">Android device automation</span>
+            <span class="chip">ADB</span>
+            <span class="chip">Selenium</span>
+            <span class="chip">Cisco IOS CLI</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= EXPERIENCE ======================= -->
+  <section class="block" id="experience" aria-labelledby="exp-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">Experience — the short version</p>
+        <h2 class="sec-title" id="exp-title">Hardware engineer to infrastructure developer</h2>
+        <p class="sec-intro">The full role-by-role history will live on the Experience page. This is the arc: a decade of hardware and test engineering, then Wi-Fi protocol QA, then building the platforms other teams test on.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="t-item current">
+          <span class="t-dates">2023 — PRESENT</span>
+          <h3>Senior Software Developer (GSR8) — Test Automation <span class="t-org">· Ford Motor Company Canada</span></h3>
+          <p>Building a resilient ECG test platform: DUT health and operations, the ECG analytics database designed locally and migrated to GCP, Grafana dashboards, a ground-up Jenkins rebuild with redundancy and recovery, and the ECG Test Analytics Copilot agent. Also automated lab environment setup for 200+ users — from 8+ hours down to under 30 minutes — including hardware setup automation on the DUTs as part of that lab and environment automation work.</p>
+        </article>
+
+        <article class="t-item">
+          <span class="t-dates">2018 — 2023</span>
+          <h3>Sr. QA R&amp;D Engineer <span class="t-org">· Keysight Technologies — Ixia Solutions Group</span></h3>
+          <p>Wi-Fi protocol test suites for 802.11k and 802.11ax (Wi-Fi 6), automated regression testing, and third-party device automation.</p>
+        </article>
+
+        <article class="t-item">
+          <span class="t-dates">2012 — 2018</span>
+          <h3>Hardware Engineer <span class="t-org">· Cinder Solutions / Allion USA</span></h3>
+          <p>Hardware and test engineering work for client companies including:</p>
+          <div class="t-clients">
+            <span class="tc-label">Customers included</span>
+            <span>Amazon Lab126</span><span>Apple</span><span>Google</span><span>Intel</span><span>Microsoft</span><span>GoPro</span><span>Nest</span>
+          </div>
+        </article>
+
+        <article class="t-item">
+          <span class="t-dates">2011 — 2013 · EDUCATION</span>
+          <h3>Master of Science, Electrical and Computer Engineering <span class="t-org">· Portland State University</span></h3>
+          <p>The engineering foundation under everything above — circuit design, systems, and the lab craft that still shows up in the infrastructure work.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= CONTACT ======================= -->
+  <section class="block" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-kicker">Contact</p>
+        <h2 class="sec-title" id="contact-title">Get in touch</h2>
+      </div>
+      <div class="contact-card">
+        <div>
+          <h3>Contact details available on request</h3>
+          <p>Questions about the platform work, or a role that sounds like it? I build infrastructure for test and engineering teams — if that's the kind of work you need done, I'd like to hear about it. Contact details are available on request.</p>
+        </div>
+        <div class="contact-rows">
+          <div class="contact-row">
+            <span class="cr-label">Current role</span>
+            <span class="cr-value">Senior Software Developer (GSR8), Ford Motor Company Canada</span>
+          </div>
+          <div class="contact-row">
+            <span class="cr-label">Focus</span>
+            <span class="cr-value">Test Automation, Infrastructure &amp; Analytics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Prince Paul</div>
+        <div class="footer-sub">Senior Software Developer — Test Automation, Infrastructure &amp; Analytics<br />This is the Home page; the sections above expand into full Projects, Experience, Resume and Contact pages next.</div>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#top">Home</a>
+        <a href="#featured-work">Projects<span class="soon">Next</span></a>
+        <a href="#experience">Experience<span class="soon">Next</span></a>
+        <a href="#skills">Resume<span class="soon">Next</span></a>
+        <a href="#contact">Contact<span class="soon">Next</span></a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Mobile menu */
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', function(){
+    var open = mobileMenu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  mobileMenu.addEventListener('click', function(e){
+    if(e.target.closest('a')){ mobileMenu.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.setAttribute('aria-label','Open menu'); }
+  });
+
+  /* Featured-work tabs */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.work-tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.work-panel'));
+  function selectTab(tab, focus){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    panels.forEach(function(p){ p.hidden = p.getAttribute('data-panel') !== tab.getAttribute('data-tab'); });
+    if(focus) tab.focus();
+  }
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){ selectTab(tab, false); });
+    tab.addEventListener('keydown', function(e){
+      var idx = null;
+      if(e.key === 'ArrowRight') idx = (i + 1) % tabs.length;
+      if(e.key === 'ArrowLeft') idx = (i - 1 + tabs.length) % tabs.length;
+      if(e.key === 'Home') idx = 0;
+      if(e.key === 'End') idx = tabs.length - 1;
+      if(idx !== null){ e.preventDefault(); selectTab(tabs[idx], true); }
+    });
+  });
+
+  /* Skill filters */
+  var filters = Array.prototype.slice.call(document.querySelectorAll('.skill-filter'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.skill-group'));
+  filters.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filters.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      var f = btn.getAttribute('data-filter');
+      groups.forEach(function(g){
+        g.classList.toggle('hidden', f !== 'all' && g.getAttribute('data-group') !== f);
+      });
+    });
+  });
+
+  /* Highlight nav link for the section in view */
+  var sections = ['featured-work','experience','skills','contact'];
+  var navMap = { 'featured-work':1, 'experience':2, 'skills':3, 'contact':4 };
+  var deskLinks = document.querySelectorAll('.nav-links a');
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          deskLinks.forEach(function(a){ a.classList.remove('active'); });
+          var idx = navMap[en.target.id];
+          if(idx !== undefined && deskLinks[idx]) deskLinks[idx].classList.add('active');
+          else if(deskLinks[0]) deskLinks[0].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(function(id){ var el = document.getElementById(id); if(el) obs.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
